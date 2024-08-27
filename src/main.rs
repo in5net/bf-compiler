@@ -106,10 +106,10 @@ fn compile(text: String, filename: &str, out_filename: &str, log: bool) {
         .expect("couldn't write object file");
 
     let args = [object_filename, "-o", out_filename];
-    Command::new("gcc")
+    Command::new("clang")
         .args(args)
         .output()
-        .expect("failed to link with gcc");
+        .expect("failed to link with clang");
 
     let end = Instant::now();
     println!(
